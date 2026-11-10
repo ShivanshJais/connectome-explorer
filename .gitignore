@@ -1,0 +1,19 @@
+# FlyWire data is downloaded under FlyWire's terms and never committed
+data/
+
+# Local secrets
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Editors and OS
+.vscode/
+.idea/
+.DS_Store
