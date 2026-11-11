@@ -1,6 +1,4 @@
-from email.policy import default
 from django.db import models
-from django.db.models import BigAutoField, constraints
 
 class Neuron(models.Model):
     root_id = models.BigIntegerField(primary_key=True)
@@ -9,7 +7,7 @@ class Neuron(models.Model):
     flow = models.TextField(blank=True, default="")
     super_class = models.TextField(blank=True, default="")
     cell_class = models.TextField(blank=True, default="") # refers to class header in the csv file. renamed to avoid keyword conflict
-    sub_clas = models.TextField(blank=True, default="")
+    sub_class = models.TextField(blank=True, default="")
     hemilineage = models.TextField(blank=True, default="")
     side = models.TextField(blank=True, default="")
     nerve = models.TextField(blank=True, default="")
@@ -68,7 +66,7 @@ class NeuronCellType(models.Model):
         return f"{self.neuron_id} -> {self.cell_type}"
 
 class Connection(models.Model):
-    id = BigAutoField(primary_key=True)
+    id = models.BigAutoField(primary_key=True)
 
     pre = models.ForeignKey(
         Neuron,
